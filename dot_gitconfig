@@ -1,0 +1,13 @@
+[user]
+	email = barry.hoggard@sothebys.com
+	name = Barry Hoggard
+[push]
+  default = current
+[core]
+  excludesfile = ~/.gitignore
+[pager]
+  branch = false
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
