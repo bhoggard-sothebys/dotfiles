@@ -7,8 +7,6 @@ export PATH=$GOPATH/bin:/usr/local/bin:$PATH
 export HOMEBREW_NO_ENV_HINTS=true
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export AWS_PROFILE=viking_dev
-
 export EDITOR=nvim
 # export VISUAL=code
 
