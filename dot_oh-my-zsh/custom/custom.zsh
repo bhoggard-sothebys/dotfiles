@@ -46,3 +46,5 @@ aws_vikingdev() {
 aws_none() {
     unset AWS_PROFILE AWS_REGION AWS_DEFAULT_REGION
 }
+
+alias ch=chezmoi
