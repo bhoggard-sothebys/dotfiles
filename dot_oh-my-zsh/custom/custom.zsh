@@ -48,3 +48,4 @@ aws_none() {
 }
 
 alias ch=chezmoi
+alias db="./deployment/scripts/database/start-db-and-migrate.sh deployment/database/client-information-db"
