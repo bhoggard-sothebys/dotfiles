@@ -13,7 +13,7 @@ brew install chezmoi
 Then clone and apply dotfiles:
 
 ```sh
-chezmoi init https://github.com/bhoggard-sothebys/dotfiles.git
+chezmoi init https://github.com/bhoggard/dotfiles.git
 chezmoi apply
 ```
 

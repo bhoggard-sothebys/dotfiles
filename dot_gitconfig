@@ -17,4 +17,6 @@
   required = true
   clean = git-lfs clean -- %f
 [credential "https://github.com"]
-  helper = !/usr/bin/gh auth git-credential
+  helper = !/Users/sothebys/.homebrew/bin/gh auth git-credential
+[safe]
+	directory = /opt/homebrew

@@ -1,11 +1,11 @@
 . ~/.secrets
 
-export GOPATH=$HOME/code/ws-monorepo/bazel-ws-monorepo/external
-export GOROOT=$GOPATH/go_sdk
-export PATH=$GOPATH/bin:/usr/local/bin:$PATH
+export PATH=~/.config/emacs/bin:~/go/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.homebrew/opt/postgresql@16/bin:$PATH
+source $HOME/.homebrew/share/zsh/site-functions
 
 export HOMEBREW_NO_ENV_HINTS=true
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(~/.homebrew/bin/brew shellenv)"
 
 export EDITOR=nvim
 # export VISUAL=code
@@ -19,33 +19,20 @@ function gogenerate() {
     find $1 -type d \( ! -name . \) -exec bash -c "cd '{}' && go generate -x" \;
 }
 
-aws_vikingprod() {
-    export AWS_PROFILE=viking_prod
-    export AWS_REGION=us-east-1
-    export AWS_DEFAULT_REGION=$AWS_REGION
-}
-
-aws_vikingregistrationprod() {
-    export AWS_PROFILE=viking_registrationprod
-    export AWS_REGION=us-east-1
-    export AWS_DEFAULT_REGION=$AWS_REGION
-}
-
-aws_vikingstaging() {
-    export AWS_PROFILE=viking_dev
-    export AWS_REGION=us-east-1
-    export AWS_DEFAULT_REGION=$AWS_REGION
-}
-
-aws_vikingdev() {
-    export AWS_PROFILE=viking_dev
-    export AWS_REGION=eu-west-1
-    export AWS_DEFAULT_REGION=$AWS_REGION
-}
-
-aws_none() {
-    unset AWS_PROFILE AWS_REGION AWS_DEFAULT_REGION
-}
+if [[ -f ~/code/ws-monorepo/env.sh ]]; then
+    source ~/code/ws-monorepo/env.sh
+fi
 
 alias ch=chezmoi
-alias db="./deployment/scripts/database/start-db-and-migrate.sh deployment/database/client-information-db"
+alias db="aws_vikingdev && make ecr-login && ./deployment/scripts/database/start-db-and-migrate.sh deployment/database/client-information-db"
+alias tp="telepresence quit && telepresence connect"
+alias tf=terraform
+alias tfs="tfswitch && terraform init"
+alias stagingci="bazel run src/go/src/client-information/cmd/grpc_server:staging"
+alias cienv="kubectl -n client-info exec deployment/client-information -c client-information-grpc-server -- env"
+alias k=kubectl
+alias dev="aws_vikingdev && k8 dev_developers"
+alias staging="aws_vikingstaging && k8 staging_developers"
+alias prod="aws_vikingprod && k8 prod_platform"
+alias kacct="kubectl -n account"
+alias awslogin="aws_none && aws sso login"
