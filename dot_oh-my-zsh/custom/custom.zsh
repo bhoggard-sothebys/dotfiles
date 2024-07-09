@@ -10,7 +10,7 @@ eval "$(~/.homebrew/bin/brew shellenv)"
 export EDITOR=nvim
 # export VISUAL=code
 
-. $HOME/code/ws-monorepo/tools/sh/k8
+# . $HOME/code/ws-monorepo/tools/sh/k8
 
 eval "$(ssh-agent -s)"
 
