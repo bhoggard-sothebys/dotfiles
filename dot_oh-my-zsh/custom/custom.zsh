@@ -1,11 +1,10 @@
 . ~/.secrets
 
 export PATH=~/.config/emacs/bin:~/go/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.homebrew/opt/postgresql@16/bin:$PATH
-source $HOME/.homebrew/share/zsh/site-functions
+source /opt/homebrew/share/zsh/site-functions
 
 export HOMEBREW_NO_ENV_HINTS=true
-eval "$(~/.homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export EDITOR=nvim
 # export VISUAL=code
@@ -33,6 +32,6 @@ alias cienv="kubectl -n client-info exec deployment/client-information -c client
 alias k=kubectl
 alias dev="aws_vikingdev && k8 dev_developers"
 alias staging="aws_vikingstaging && k8 staging_developers"
-alias prod="aws_vikingprod && k8 prod_platform"
+alias prod="export AWS_PROFILE=vikingprod_platform && k8 prod_platform"
 alias kacct="kubectl -n account"
 alias awslogin="aws_none && aws sso login"
