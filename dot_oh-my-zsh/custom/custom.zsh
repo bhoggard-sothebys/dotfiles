@@ -1,11 +1,13 @@
 . ~/.secrets
 
 export PATH=~/.config/emacs/bin:~/go/bin:/usr/local/bin:$PATH
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 source /opt/homebrew/share/zsh/site-functions
 
 export HOMEBREW_NO_ENV_HINTS=true
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+export ASDF_GOLANG_MOD_VERSION_ENABLED=true
 export EDITOR=nvim
 # export VISUAL=code
 
@@ -35,3 +37,5 @@ alias staging="aws_vikingstaging && k8 staging_developers"
 alias prod="export AWS_PROFILE=vikingprod_platform && k8 prod_platform"
 alias kacct="kubectl -n account"
 alias awslogin="aws_none && aws sso login"
+alias stagingtoken="aws rds generate-db-auth-token --hostname party-db-staging.cbpre07cru6l.us-east-1.rds.amazonaws.com --port 5432 --region us-east-1 --username party_iam_service"
+alias prodtoken="aws rds generate-db-auth-token --hostname party-db-prod.cnykxfctcmn9.us-east-1.rds.amazonaws.com --port 5432 --region us-east-1 --username party_iam_service"
