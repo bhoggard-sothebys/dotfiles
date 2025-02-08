@@ -1,5 +1,5 @@
 [user]
-  email = 145390016+bhoggard-sothebys@users.noreply.github.com
+  email = barry.hoggard@sothebys.com
   name = Barry Hoggard
 [push]
   default = current
@@ -14,7 +14,11 @@
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
    process = git-lfs filter-process
-  required = true
+   required = true
   clean = git-lfs clean -- %f
 [credential "https://github.com"]
-  helper = !/opt/homebrew/bin/gh auth git-credential
+   helper = !/opt/homebrew/bin/gh auth git-credential
+[maintenance]
+  repo = /Users/barry.hoggard/code/ws-monorepo
+[rerere]
+  enabled = true
