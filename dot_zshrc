@@ -105,3 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 eval "$(/home/sothebys/.local/bin/mise activate zsh)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/sothebys/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
