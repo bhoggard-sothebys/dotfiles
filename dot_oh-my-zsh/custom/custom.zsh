@@ -25,3 +25,5 @@ alias stagingtoken="aws rds generate-db-auth-token --hostname $STAGING_PARTY_DB_
 alias tf=terraform
 alias tfs="tfswitch && terraform init"
 alias tp="telepresence quit && telepresence connect"
+alias pbc="xclip -selection clipboard"
+
