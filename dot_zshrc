@@ -105,6 +105,9 @@ source $ZSH/oh-my-zsh.sh
 
 
 eval "$(/home/sothebys/.local/bin/mise activate zsh)"
+export GITHUB_PACKAGES_TOKEN=$(gh auth token)
+export GH_PACKAGES_TOKEN=$(gh auth token)
+
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/sothebys/.rd/bin:$PATH"
